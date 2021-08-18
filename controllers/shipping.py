@@ -11,8 +11,8 @@ api = server.api
 @api.route("/shipping")
 class Shipping(Resource):
 
-    # @api.expect('shipping_result', validade=True)
-    # @api.marshal_with('shipping_result')
+    @api.expect(shipping_calculate_request, validade=True)
+    @api.marshal_with(shipping_result)
     def post(self, ):
         payload = api.payload
         #Aqui é validado o payload
